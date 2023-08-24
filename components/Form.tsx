@@ -151,7 +151,9 @@ const Form = ({ type }: HeaderProps) => {
           emptyField();
           dispatch(setLoader(true));
           SuccessPopup("Success! Your form has been submitted.");
-          window.location.href = `${type === "teacher" ? "/" : "/student"}`;
+          setTimeout(() => {
+            window.location.href = `${type === "teacher" ? "/" : "/student"}`;
+          }, 500);
         }, 500);
       } else {
         ErrorPopup("Sorry, an error occurred");
