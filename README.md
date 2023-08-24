@@ -9,6 +9,7 @@ This is a frontend application built with Next.js that allows teachers and stude
 - Validation for required fields and age restrictions
 - Styling using Tailwind CSS
 - Caching/Mocking of data
+- Unit tests for components validation
 
 ## Prerequisites
 
