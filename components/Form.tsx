@@ -6,7 +6,6 @@ import { titleData } from "@/utils/data";
 import { isEmptyString, checkAge } from "@/utils/validate";
 import { ErrorPopup, SuccessPopup } from "@/utils/notification";
 import { useAppDispatch } from "@/redux/hook";
-import { useRouter } from "next/navigation";
 import {
   addStudentData,
   addTeacherData,
@@ -38,7 +37,6 @@ const Form = ({ type }: HeaderProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState(initialState);
   const dispatch = useAppDispatch();
-  const router = useRouter();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -153,7 +151,7 @@ const Form = ({ type }: HeaderProps) => {
           emptyField();
           dispatch(setLoader(true));
           SuccessPopup("Success! Your form has been submitted.");
-          router.push(`${type === "teacher" ? "/" : "/student"}`);
+          window.location.href = `${type === "teacher" ? "/" : "/student"}`;
         }, 500);
       } else {
         ErrorPopup("Sorry, an error occurred");
@@ -164,7 +162,11 @@ const Form = ({ type }: HeaderProps) => {
     }
   };
   return (
-    <div className="form__container">
+    <div
+      className="form__container"
+      id="form__container"
+      data-testid="form__container"
+    >
       <div className="bg-white shadow-md rounded px-8 pt-2 pb-8 mb-4 flex flex-col my-2">
         <div className="-mx-3 flex flex-col mb-6">
           <div className="mb-6 md:mb-3">
