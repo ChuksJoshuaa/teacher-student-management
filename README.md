@@ -9,12 +9,11 @@ This is a frontend application built with Next.js that allows teachers and stude
 - Validation for required fields and age restrictions
 - Styling using Tailwind CSS
 - Caching/Mocking of data
-- Unit tests for components and API
 
 ## Prerequisites
 
-- Node.js (version X.X.X)
-- npm (version X.X.X)
+- Node.js (version 16.20.0)
+- npm (version 8.19.4)
 
 ## Technologies Used
 
@@ -43,7 +42,6 @@ This is a frontend application built with Next.js that allows teachers and stude
 ├── api/ # API routes
 ├── utils/ # Utility functions
 ├── tests/ # Unit tests
-└── ...
 
 ```
 
