@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import {
   addStudentData,
   addTeacherData,
+  setLoader,
 } from "@/redux/features/records/recordSlice";
 
 const initialTeacherState: TeacherProps = {
@@ -150,6 +151,7 @@ const Form = ({ type }: HeaderProps) => {
           if (type === "teacher") dispatch(addTeacherData(data));
           else dispatch(addStudentData(data));
           emptyField();
+          dispatch(setLoader(true));
           SuccessPopup("Success! Your form has been submitted.");
           router.push(`${type === "teacher" ? "/" : "/student"}`);
         }, 500);

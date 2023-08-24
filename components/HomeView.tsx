@@ -39,11 +39,13 @@ const HomeView = ({ type }: HeaderProps) => {
 
   return (
     <div className={`${!isSidebarOpen ? "mx-6" : "mx-1"}`}>
-      <div className={`container ${!isSidebarOpen ? "ml-[1em]" : "ml-0"}`}>
+      <div
+        className={`record__container ${!isSidebarOpen ? "ml-[1em]" : "ml-0"}`}
+      >
         {recordData?.map((val: TeacherProps | StudentProps, i: number) => (
           <div
             key={i}
-            className="w-full  h-auto sm:h-[180px] border-2 border-gray-100 shadow-lg mb-5 p-3"
+            className="w-full h-auto sm:h-[180px] border-2 border-gray-100 shadow-lg mb-5 p-3"
           >
             {type === "teacher" && "title" in val ? (
               <h1 className="text-blue-700 font-bold text-md sm:text-lg pb-2 uppercase">

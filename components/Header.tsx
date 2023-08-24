@@ -4,11 +4,13 @@ import dashboardSvg from "@/assets/dashboard.svg";
 import arrowRightSvg from "@/assets/arrowRight.svg";
 import { HeaderProps } from "@/utils/interface";
 import Image from "next/image";
-import { useAppSelector } from "@/redux/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { useRouter } from "next/navigation";
+import { setLoader } from "@/redux/features/records/recordSlice";
 
 const Header = ({ type }: HeaderProps) => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const { isSidebarOpen } = useAppSelector((state) => state.record);
   return (
     <div
@@ -53,6 +55,7 @@ const Header = ({ type }: HeaderProps) => {
           </Link>
           <Link
             href={`${type === "teacher" ? "/student" : "/"}`}
+            onClick={() => dispatch(setLoader(true))}
             className="mx-2 rounded-[6px] bg-[#222] py-[5px] px-[10px] gap-[5px] flex items-center cursor-pointer"
           >
             <h3 className="text-white text-[12px] sm:text-[14px] leading-[24px] font-normal">
@@ -62,7 +65,10 @@ const Header = ({ type }: HeaderProps) => {
         </div>
       ) : (
         <button
-          onClick={() => router.back()}
+          onClick={() => {
+            router.back();
+            dispatch(setLoader(true));
+          }}
           className="rounded-[6px] bg-[#222] py-[5px] px-[10px] gap-[5px] flex items-center cursor-pointer"
         >
           <h3 className="text-white text-[14px] leading-[24px] font-normal">

@@ -13,6 +13,7 @@ import {
   openSidebar,
   saveStudentData,
   saveTeacherData,
+  setLoader,
 } from "@/redux/features/records/recordSlice";
 import {
   getStudentLocalStorage,
@@ -54,6 +55,7 @@ const Navbar = () => {
       >
         <Link
           href="/"
+          onClick={() => dispatch(setLoader(true))}
           className="w-72 h-[55px]"
           style={{ fontFamily: "Lobster Two" }}
         >

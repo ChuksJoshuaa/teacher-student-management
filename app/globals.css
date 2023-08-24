@@ -42,20 +42,20 @@ a {
   width: 90%;
 }
 
-.container {
+.record__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 
 @media screen and (max-width: 1425px) {
-  .container {
+  .record__container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media screen and (max-width: 972px) {
-  .container {
+  .record__container {
     grid-template-columns: 1fr;
   }
 }
@@ -67,6 +67,7 @@ a {
   width: 90%;
   margin: 0 auto;
   padding-top: 2em;
+  margin-bottom: 5em;
 }
 
 /* styles.css */

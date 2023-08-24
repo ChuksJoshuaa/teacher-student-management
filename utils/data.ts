@@ -33,11 +33,11 @@ export const teacherData = [
     id: 1,
     nationalIdNumber: "28393030020223",
     title: "mrs",
-    name: "Joshua",
-    surname: "Mbanaso",
-    dob: "1998-06-13",
+    name: "John",
+    surname: "Doe",
+    dob: "1991-06-23",
     salary: "100000",
-    teacherNumber: "T123",
+    teacherNumber: "J-78123",
   },
 ];
 
