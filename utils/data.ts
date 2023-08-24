@@ -32,7 +32,7 @@ export const teacherData = [
   {
     id: 1,
     nationalIdNumber: "28393030020223",
-    title: "mrs",
+    title: "mr",
     name: "John",
     surname: "Doe",
     dob: "1991-06-23",
