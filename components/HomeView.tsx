@@ -1,5 +1,6 @@
 "use client";
 import { useAppSelector } from "@/redux/hook";
+import { formatCurrency } from "@/utils/data";
 import { HeaderProps, StudentProps, TeacherProps } from "@/utils/interface";
 import moment from "moment";
 import { useEffect, useState } from "react";
@@ -29,9 +30,11 @@ const HomeView = ({ type }: HeaderProps) => {
   }, [type, teacherData, studentData]);
 
   if (recordData.length === 0) {
-    <div className="flex justify-center items-center text-center">
-      No record found!!
-    </div>;
+    return (
+      <div className="flex justify-center items-center text-center text-md md:text-lg text-red-500">
+        No record found!!
+      </div>
+    );
   }
 
   return (
@@ -63,6 +66,12 @@ const HomeView = ({ type }: HeaderProps) => {
             <h2 className="text-gray-900 font-normal text-md pb-2">
               National ID Number: {val?.nationalIdNumber}
             </h2>
+
+            {type === "teacher" && "title" in val ? (
+              <h2 className="text-gray-900 font-normal text-md pb-2">
+                Salary: ₦{formatCurrency(val?.salary)}
+              </h2>
+            ) : null}
 
             <h6 className="text-red-600 text-sm">
               <span className="text-gray-900">Date of birth: </span>

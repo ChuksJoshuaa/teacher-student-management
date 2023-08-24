@@ -6,17 +6,43 @@ import searchSvg from "@/assets/search.svg";
 import toggleSvg from "@/assets/toggle.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
-import { openSidebar } from "@/redux/features/records/recordSlice";
+import {
+  openSidebar,
+  saveStudentData,
+  saveTeacherData,
+} from "@/redux/features/records/recordSlice";
+import {
+  getStudentLocalStorage,
+  getTeacherLocalStorage,
+} from "@/utils/getLocalStorage";
+import { StudentProps, TeacherProps } from "@/utils/interface";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const { isSidebarOpen } = useAppSelector((state) => state.record);
   const [value, setValue] = useState("");
+  const path = usePathname();
 
   const handleChange = () => {
-    console.log(value);
+    const isTeacher = path === "/";
+    const data = isTeacher
+      ? getTeacherLocalStorage().data
+      : getStudentLocalStorage().data;
+    const newSearchData = value
+      ? data.filter(
+          (item: TeacherProps | StudentProps) =>
+            item.name.match(new RegExp(value, "gi")) ||
+            item.surname.match(new RegExp(value, "gi"))
+        )
+      : data;
+    dispatch(
+      isTeacher
+        ? saveTeacherData(newSearchData)
+        : saveStudentData(newSearchData)
+    );
   };
 
   return (
@@ -48,7 +74,7 @@ const Navbar = () => {
             <input
               onKeyUp={handleChange}
               onChange={(e) => setValue(e.target.value)}
-              placeholder="Search"
+              placeholder="Search name..."
               className="w-[250px] md:w-[500px] h-[27px] rounded-[4px] bg-white outline-none px-3"
             />
             <div className="absolute top-[50%] right-[10px] translate-y-[-50%]">

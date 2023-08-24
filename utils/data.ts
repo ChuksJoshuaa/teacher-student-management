@@ -23,6 +23,11 @@ export const titleData = [
 
 export const uniqueId = () => Math.floor(Math.random() * 1000000000);
 
+export function formatCurrency(i: string) {
+  let val = Number(i);
+  return new Intl.NumberFormat().format(val);
+}
+
 export const teacherData = [
   {
     id: 1,
