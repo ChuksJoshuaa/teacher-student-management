@@ -42,20 +42,20 @@ a {
   width: 90%;
 }
 
-.teacher__container {
+.container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 
 @media screen and (max-width: 1425px) {
-  .teacher__container {
+  .container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media screen and (max-width: 972px) {
-  .teacher__container {
+  .container {
     grid-template-columns: 1fr;
   }
 }

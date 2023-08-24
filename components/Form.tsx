@@ -4,6 +4,13 @@ import { HeaderProps, StudentProps, TeacherProps } from "@/utils/interface";
 import React, { useState } from "react";
 import { titleData } from "@/utils/data";
 import { isEmptyString, checkAge } from "@/utils/validate";
+import { ErrorPopup, SuccessPopup } from "@/utils/notification";
+import { useAppDispatch } from "@/redux/hook";
+import { useRouter } from "next/navigation";
+import {
+  addStudentData,
+  addTeacherData,
+} from "@/redux/features/records/recordSlice";
 
 const initialTeacherState: TeacherProps = {
   nationalIdNumber: "",
@@ -29,6 +36,8 @@ const Form = ({ type }: HeaderProps) => {
   const [formData, setFormData] = useState(initialState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState(initialState);
+  const dispatch = useAppDispatch();
+  const router = useRouter();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -85,7 +94,7 @@ const Form = ({ type }: HeaderProps) => {
     let hasErrors = false;
 
     fieldsToValidate.forEach((field) => {
-      let fieldValue: string | undefined;
+      let fieldValue: string | number | undefined;
 
       if ("teacherNumber" in formData && type === "teacher") {
         fieldValue = (formData as TeacherProps)[field];
@@ -123,8 +132,34 @@ const Form = ({ type }: HeaderProps) => {
       return;
     }
 
-    console.log(formData);
-    emptyField();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/record", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setTimeout(() => {
+          setIsSubmitting(false);
+          if (type === "teacher") dispatch(addTeacherData(data));
+          else dispatch(addStudentData(data));
+          emptyField();
+          SuccessPopup("Success! Your form has been submitted.");
+          router.push(`${type === "teacher" ? "/" : "/student"}`);
+        }, 500);
+      } else {
+        ErrorPopup("Sorry, an error occurred");
+      }
+    } catch (error) {
+      ErrorPopup("Sorry, an error occurred");
+      console.log(error);
+    }
   };
   return (
     <div className="form__container">

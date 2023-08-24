@@ -6,8 +6,12 @@ export type TeacherProps = {
   dob: string;
   teacherNumber: string;
   salary: string;
-  [key: string]: string;
+  [key: string]: string | number;
 };
+
+export interface TeacherPropsWithId extends TeacherProps {
+  id: number;
+}
 
 export type ChildrenProps = {
   children: React.ReactNode;
@@ -24,6 +28,10 @@ export type StudentProps = {
   dob: string;
   studentNumber: string;
 };
+
+export interface StudentPropsWithId extends StudentProps {
+  id: number;
+}
 
 export interface IIProps {
   loading: boolean;

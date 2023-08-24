@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Navbar, Footer } from "@/components";
 import { ReduxProvider } from "@/redux/provider";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <ReduxProvider>
           <Navbar />
-          <div>{children}</div>
+          <ToastContainer />
+          <div style={{ minHeight: "100vh" }}>{children}</div>
           <Footer />
         </ReduxProvider>
       </body>
