@@ -35,12 +35,14 @@ This is a frontend application built with Next.js that allows teachers and stude
 
 ## Folder Structure
 
+```
 ├── components/ # React components
 ├── pages/ # Next.js pages
 ├── api/ # API routes
 ├── utils/ # Utility functions
 ├── tests/ # Unit tests
-└── ...
+└──
+...
 
 ## Usage
 
@@ -64,3 +66,4 @@ Contributions are welcome! If you would like to contribute to this project, plea
 3. Make your changes and commit them: `git commit -m 'Add some feature'`.
 4. Push to the branch: `git push origin feature/your-feature-name`.
 5. Submit a pull request.
+```
