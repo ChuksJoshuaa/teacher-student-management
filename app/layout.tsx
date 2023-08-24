@@ -23,7 +23,7 @@ export default function RootLayout({
         <ReduxProvider>
           <Navbar />
           <ToastContainer />
-          <div>{children}</div>
+          <div style={{ minHeight: "100vh" }}>{children}</div>
           <Footer />
         </ReduxProvider>
       </body>
