@@ -4,7 +4,7 @@ import { Header, HomeView, SideLayout } from "@/components";
 const Home = () => {
   return (
     <SideLayout>
-      <Header type="teacher" />
+      <Header type="student" />
       <HomeView />
     </SideLayout>
   );
