@@ -47,7 +47,7 @@ const Header = ({ type }: HeaderProps) => {
             href={`/create-form/${type === "teacher" ? "teacher" : "student"}`}
             className="rounded-[6px] bg-[#222] py-[5px] px-[10px] gap-[5px] flex items-center cursor-pointer"
           >
-            <h3 className="text-white text-[14px] leading-[24px] font-normal">
+            <h3 className="text-white  text-[12px] sm:text-[14px] leading-[24px] font-normal">
               Create Record
             </h3>
           </Link>
@@ -55,7 +55,7 @@ const Header = ({ type }: HeaderProps) => {
             href={`${type === "teacher" ? "/student" : "/"}`}
             className="mx-2 rounded-[6px] bg-[#222] py-[5px] px-[10px] gap-[5px] flex items-center cursor-pointer"
           >
-            <h3 className="text-white text-[14px] leading-[24px] font-normal">
+            <h3 className="text-white text-[12px] sm:text-[14px] leading-[24px] font-normal">
               {type === "teacher" ? "View Students" : "View Teachers"}
             </h3>
           </Link>

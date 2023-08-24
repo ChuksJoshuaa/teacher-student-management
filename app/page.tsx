@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <SideLayout>
       <Header type="teacher" />
-      <HomeView />
+      <HomeView type="teacher" />
     </SideLayout>
   );
 };
