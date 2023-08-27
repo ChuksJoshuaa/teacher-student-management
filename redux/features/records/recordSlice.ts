@@ -11,6 +11,7 @@ const initialState: IIProps = {
   isSidebarOpen: false,
   teacherData: [] as TeacherProps[],
   studentData: [] as StudentProps[],
+  searchTerm: "",
 };
 
 export const recordSlice = createSlice({
@@ -24,6 +25,10 @@ export const recordSlice = createSlice({
 
     openSidebar: (state, action) => {
       state.isSidebarOpen = action.payload;
+    },
+
+    setSearchTerm: (state, action) => {
+      state.searchTerm = action.payload;
     },
 
     saveTeacherData: (state, action) => {
@@ -61,6 +66,7 @@ export const {
   addTeacherData,
   addStudentData,
   saveStudentData,
+  setSearchTerm,
 } = recordSlice.actions;
 
 export default recordSlice.reducer;

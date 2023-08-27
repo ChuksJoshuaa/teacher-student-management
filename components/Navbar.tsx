@@ -14,6 +14,7 @@ import {
   saveStudentData,
   saveTeacherData,
   setLoader,
+  setSearchTerm,
 } from "@/redux/features/records/recordSlice";
 import {
   getStudentLocalStorage,
@@ -44,6 +45,7 @@ const Navbar = () => {
         ? saveTeacherData(newSearchData)
         : saveStudentData(newSearchData)
     );
+    dispatch(setSearchTerm(value));
   };
 
   return (
