@@ -28,6 +28,8 @@ const HomeView = ({ type }: HeaderProps) => {
     getFetchData();
   }, [type, teacherData, studentData, loading]);
 
+  if (loading) return <Loader />;
+
   if (recordData.length === 0 && searchTerm) {
     return (
       <div className="flex justify-center items-center text-center text-lg text-gray-700">
@@ -37,8 +39,6 @@ const HomeView = ({ type }: HeaderProps) => {
       </div>
     );
   }
-
-  if (loading) return <Loader />;
 
   return (
     <div className={`${!isSidebarOpen ? "mx-6" : "mx-1"}`}>
