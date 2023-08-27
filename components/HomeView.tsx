@@ -26,9 +26,7 @@ const HomeView = ({ type }: HeaderProps) => {
 
   useEffect(() => {
     getFetchData();
-  }, [type, searchTerm, loading]);
-
-  if (loading) return <Loader />;
+  }, [type, teacherData, studentData, loading]);
 
   if (recordData.length === 0 && searchTerm) {
     return (
@@ -39,6 +37,8 @@ const HomeView = ({ type }: HeaderProps) => {
       </div>
     );
   }
+
+  if (loading) return <Loader />;
 
   return (
     <div className={`${!isSidebarOpen ? "mx-6" : "mx-1"}`}>
