@@ -3,7 +3,7 @@ import { useAppSelector } from "@/redux/hook";
 import { formatCurrency } from "@/utils/data";
 import { HeaderProps, StudentProps, TeacherProps } from "@/utils/interface";
 import moment from "moment";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const HomeView = ({ type }: HeaderProps) => {
   const { teacherData, studentData, isSidebarOpen } = useAppSelector(
@@ -12,13 +12,20 @@ const HomeView = ({ type }: HeaderProps) => {
   const [recordData, setRecordData] = useState<TeacherProps[] | StudentProps[]>(
     []
   );
-  const getFetchData = async (): Promise<void> => {
+
+  const value = useMemo(
+    () => (type === "teacher" ? teacherData : studentData),
+    [type, teacherData, studentData]
+  );
+
+  const getFetchData = async (
+    data: TeacherProps[] | StudentProps[]
+  ): Promise<void> => {
     try {
       const response = await fetch("/api/record");
       const resp = await response.json();
       if (resp) {
-        const value = type === "teacher" ? teacherData : studentData;
-        setRecordData(value);
+        setRecordData(data);
       }
     } catch (error) {
       console.log(error);
@@ -26,13 +33,13 @@ const HomeView = ({ type }: HeaderProps) => {
   };
 
   useEffect(() => {
-    getFetchData();
-  }, [type, teacherData, studentData]);
+    getFetchData(value);
+  }, [value]);
 
-  if (recordData.length === 0) {
+  if (value.length === 0) {
     return (
-      <div className="flex justify-center items-center text-center text-md md:text-lg text-red-500">
-        No record found!!
+      <div className="flex justify-center items-center text-center text-md md:text-lg text-gray-500">
+        No `${type} record found!!
       </div>
     );
   }
