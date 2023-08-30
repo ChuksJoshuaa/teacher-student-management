@@ -21,7 +21,7 @@ const HomeView = ({ type }: HeaderProps) => {
 
     setTimeout(() => {
       dispatch(setLoader(false));
-    }, 300);
+    }, 700);
   };
 
   useEffect(() => {
