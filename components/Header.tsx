@@ -65,6 +65,7 @@ const Header = ({ type }: HeaderProps) => {
         </div>
       ) : (
         <button
+          data-testid="go-back-button"
           onClick={() => {
             router.back();
             dispatch(setLoader(true));
