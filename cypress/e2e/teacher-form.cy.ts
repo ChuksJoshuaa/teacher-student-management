@@ -42,6 +42,8 @@ function fillTeacherForm() {
   cy.get('input[name="surname"]').type("Doe");
   cy.get('input[name="dob"]').type("1990-01-01");
   cy.get('select[name="title"]').select("mr");
+  cy.get("select").select(0).should("have.value", "");
+  cy.get("select").select(0).should("contain", "Select Title");
   cy.get("select")
     .should("be.visible")
     .then(() => {

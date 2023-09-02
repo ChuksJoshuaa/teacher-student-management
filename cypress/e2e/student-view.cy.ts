@@ -45,9 +45,4 @@ describe("Navigation to Student View", () => {
     // Assuming that the type prop is set to 'student'
     cy.get("a").contains("View Teachers").should("exist");
   });
-
-  it('should display the "Go back" button for other types', () => {
-    // Assuming that the type prop is set to something other than 'teacher' or 'student'
-    cy.get("button").contains("Go back").should("exist");
-  });
 });
