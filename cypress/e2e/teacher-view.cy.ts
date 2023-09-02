@@ -56,4 +56,14 @@ describe("Navigation to Teacher View", () => {
 
     // cy.window().its("Cypress").its("store").invoke("dispatch", setLoader(true));
   });
+
+  it("should display the footer component", () => {
+    cy.get('[data-cy="footer__container"]').should("exist");
+    cy.get('[data-cy="footer__container"]').should("contain", "2023");
+    cy.get('[data-cy="footer__container"]').should("contain", "Peabux");
+    cy.get('[data-cy="footer__container"]').should(
+      "contain",
+      "All rights reserved"
+    );
+  });
 });

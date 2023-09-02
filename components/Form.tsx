@@ -191,7 +191,7 @@ const Form = ({ type }: HeaderProps) => {
               value={formData.nationalIdNumber}
               onChange={handleChange}
             />
-            <div className="text-red-900 text-sm" data-testId="errors">
+            <div className="text-red-900 text-sm" data-testid="errors">
               {errors.nationalIdNumber}
             </div>
           </div>
@@ -222,7 +222,7 @@ const Form = ({ type }: HeaderProps) => {
                     </option>
                   ))}
                 </select>
-                <div className="text-red-900 text-sm" data-testId="errors">
+                <div className="text-red-900 text-sm" data-testid="errors">
                   {errors.title}
                 </div>
               </div>
@@ -246,7 +246,7 @@ const Form = ({ type }: HeaderProps) => {
                   value={formData.teacherNumber}
                   onChange={handleChange}
                 />
-                <div className="text-red-900 text-sm" data-testId="errors">
+                <div className="text-red-900 text-sm" data-testid="errors">
                   {errors.teacherNumber}
                 </div>
               </div>
@@ -272,7 +272,7 @@ const Form = ({ type }: HeaderProps) => {
                 value={formData.name}
                 onChange={handleChange}
               />
-              <div className="text-red-900 text-sm" data-testId="errors">
+              <div className="text-red-900 text-sm" data-testid="errors">
                 {errors.name}
               </div>
             </div>
@@ -294,7 +294,7 @@ const Form = ({ type }: HeaderProps) => {
                 value={formData.surname}
                 onChange={handleChange}
               />
-              <div className="text-red-900 text-sm" data-testId="errors">
+              <div className="text-red-900 text-sm" data-testid="errors">
                 {errors.surname}
               </div>
             </div>
@@ -319,7 +319,7 @@ const Form = ({ type }: HeaderProps) => {
                   value={formData.salary}
                   onChange={handleChange}
                 />
-                <div className="text-red-900 text-sm" data-testId="errors">
+                <div className="text-red-900 text-sm" data-testid="errors">
                   {errors.salary}
                 </div>
               </div>
@@ -344,7 +344,7 @@ const Form = ({ type }: HeaderProps) => {
                   value={formData.studentNumber}
                   onChange={handleChange}
                 />
-                <div className="text-red-900 text-sm" data-testId="errors">
+                <div className="text-red-900 text-sm" data-testid="errors">
                   {errors.studentNumber}
                 </div>
               </div>
@@ -366,7 +366,7 @@ const Form = ({ type }: HeaderProps) => {
                 value={formData.dob}
                 onChange={handleChange}
               />
-              <div className="text-red-900 text-sm" data-testId="errors">
+              <div className="text-red-900 text-sm" data-testid="errors">
                 {errors.dob}
               </div>
             </div>

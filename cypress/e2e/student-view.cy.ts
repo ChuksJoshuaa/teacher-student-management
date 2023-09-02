@@ -45,4 +45,14 @@ describe("Navigation to Student View", () => {
     // Assuming that the type prop is set to 'student'
     cy.get("a").contains("View Teachers").should("exist");
   });
+
+  it("should display the footer component", () => {
+    cy.get('[data-cy="footer__container"]').should("exist");
+    cy.get('[data-cy="footer__container"]').should("contain", "2023");
+    cy.get('[data-cy="footer__container"]').should("contain", "Peabux");
+    cy.get('[data-cy="footer__container"]').should(
+      "contain",
+      "All rights reserved"
+    );
+  });
 });
