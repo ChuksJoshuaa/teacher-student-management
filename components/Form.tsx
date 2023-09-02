@@ -191,7 +191,7 @@ const Form = ({ type }: HeaderProps) => {
               value={formData.nationalIdNumber}
               onChange={handleChange}
             />
-            <div className="text-red-900 text-sm">
+            <div className="text-red-900 text-sm" data-testId="errors">
               {errors.nationalIdNumber}
             </div>
           </div>
@@ -222,7 +222,9 @@ const Form = ({ type }: HeaderProps) => {
                     </option>
                   ))}
                 </select>
-                <div className="text-red-900 text-sm">{errors.title}</div>
+                <div className="text-red-900 text-sm" data-testId="errors">
+                  {errors.title}
+                </div>
               </div>
               <div className="md:w-1/2 px-3">
                 <label
@@ -244,7 +246,7 @@ const Form = ({ type }: HeaderProps) => {
                   value={formData.teacherNumber}
                   onChange={handleChange}
                 />
-                <div className="text-red-900 text-sm">
+                <div className="text-red-900 text-sm" data-testId="errors">
                   {errors.teacherNumber}
                 </div>
               </div>
@@ -270,7 +272,9 @@ const Form = ({ type }: HeaderProps) => {
                 value={formData.name}
                 onChange={handleChange}
               />
-              <div className="text-red-900 text-sm">{errors.name}</div>
+              <div className="text-red-900 text-sm" data-testId="errors">
+                {errors.name}
+              </div>
             </div>
             <div className="md:w-1/2 px-3">
               <label
@@ -290,7 +294,9 @@ const Form = ({ type }: HeaderProps) => {
                 value={formData.surname}
                 onChange={handleChange}
               />
-              <div className="text-red-900 text-sm">{errors.surname}</div>
+              <div className="text-red-900 text-sm" data-testId="errors">
+                {errors.surname}
+              </div>
             </div>
           </div>
           <div className="-mx-3 md:flex mb-6">
@@ -313,7 +319,9 @@ const Form = ({ type }: HeaderProps) => {
                   value={formData.salary}
                   onChange={handleChange}
                 />
-                <div className="text-red-900 text-sm">{errors.salary}</div>
+                <div className="text-red-900 text-sm" data-testId="errors">
+                  {errors.salary}
+                </div>
               </div>
             ) : (
               <div className="md:w-1/2 px-3 mb-6 md:mb-0">
@@ -336,7 +344,7 @@ const Form = ({ type }: HeaderProps) => {
                   value={formData.studentNumber}
                   onChange={handleChange}
                 />
-                <div className="text-red-900 text-sm">
+                <div className="text-red-900 text-sm" data-testId="errors">
                   {errors.studentNumber}
                 </div>
               </div>
@@ -358,7 +366,9 @@ const Form = ({ type }: HeaderProps) => {
                 value={formData.dob}
                 onChange={handleChange}
               />
-              <div className="text-red-900 text-sm">{errors.dob}</div>
+              <div className="text-red-900 text-sm" data-testId="errors">
+                {errors.dob}
+              </div>
             </div>
           </div>
 
@@ -378,6 +388,7 @@ const Form = ({ type }: HeaderProps) => {
               onClick={handleSubmit}
               onKeyDown={handleEnterKeyPress}
               disabled={isSubmitting}
+              data-testid="submit-btn"
             >
               {isSubmitting && (
                 <div aria-label="Loading..." role="status" className="mr-1">

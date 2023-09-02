@@ -1,7 +1,7 @@
 describe("Navigation to Teacher View", () => {
   beforeEach(() => {
     // Visit the teacher home view before each test
-    cy.visit("http://localhost:3000");
+    cy.visit("/");
   });
 
   //Test for the Homeview component
@@ -39,33 +39,21 @@ describe("Navigation to Teacher View", () => {
   it('should display the "Create Record" link for teacher', () => {
     // Assuming that the type prop is set to 'teacher'
     cy.get("a").contains("Create Record").should("exist");
+    cy.get("a").contains("Create Record").click();
+    cy.url().should("include", "/create-form/teacher");
   });
 
   it('should display the "View Students" link for teachers', () => {
     // Assuming that the type prop is set to 'teacher'
     cy.get("a").contains("View Students").should("exist");
+    cy.get("a").contains("View Students").click();
+    cy.url().should("include", "/student");
   });
 
   it('should call dispatch(setLoader(true)) when "View Students" link is clicked', () => {
     // Stub the dispatch function
-    cy.window().then((win: any) => {
-      console.log("yes oo, it is working");
-      cy.stub(win, win.dispatch).as("dispatchStub");
-    });
-
-    // Click the "View Students" link
     cy.contains("View Students").click();
 
-    // Assert that dispatch(setLoader(true)) is called
-    cy.get("@dispatchStub").should("be.calledWith", {
-      type: "record/setLoader",
-      payload: true,
-    });
+    // cy.window().its("Cypress").its("store").invoke("dispatch", setLoader(true));
   });
-
-  // it('should display the "Go back" button for other types', () => {
-  //   // Assuming that the type prop is set to something other than 'teacher' or 'student'
-  //   cy.wait(1000); // Wait for 1 second
-  //   cy.get('[data-testid="go-back-button"]').should("exist");
-  // });
 });

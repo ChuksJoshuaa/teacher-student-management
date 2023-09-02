@@ -1,7 +1,7 @@
 describe("Navigation to Student View", () => {
   beforeEach(() => {
     // Visit the home view before each test
-    cy.visit("http://localhost:3000/student");
+    cy.visit("/student");
   });
 
   //Test for the Homeview component
