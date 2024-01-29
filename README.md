@@ -2,7 +2,7 @@
 
 <img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1692884383/Screenshot_2023-08-24_at_14.37.55_pfljei.png" title="Image" alt="image">
 
-This is a frontend application built with Next.js that allows teachers and students to input their details into a system. The application also displays a list of teachers and students who have entered their information.
+This is a frontend application built with Next.js that allows teachers and students to input their details into a system. The application also displays a list of teachers and students who have entered their information..
 
 - Input and display teacher details
 - Input and display student details
